@@ -1,0 +1,44 @@
+table.style1 {
+	vertical-align: center;
+}
+
+table.style1 th, td  {
+	padding:10px;
+}
+
+table.style1 th {
+	width:20px;
+}
+
+table.style1 td{
+	width:20px
+}
+
+th {
+	text-align:center
+}
+
+#top,
+#bottom {
+	position: fixed;
+	left: 0;
+	right: 0;
+	height: 50%;
+}
+
+#top {
+	top: 0;
+}
+
+#bottom {
+	bottom: 0
+}
+
+input.Settings {
+	display: block;
+	text-align: center;
+	marging: 0;
+	font-size: 55px;
+	width: 100px;
+	height: 100px;
+}

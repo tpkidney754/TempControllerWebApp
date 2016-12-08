@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="" method="post" name="newBrewForm">
+	{{ newBrewForm.hidden_tag() }}
+	<h1>Enter the name for the new beer</h1><br>
+		{{ newBrewForm.newBrew }}<br>
+		<input type="submit" value="Submit" class="btn btn-large"><br>
+</form>
+
+<form action="" method="post" name="brewHistoryForm">
+	{{ brewHistoryForm.hidden_tag() }}
+	<h3>Or Select a previous or current beer to views statistics</h3>
+		{{ brewHistoryForm.brewName }}<br>
+	<input type="submit" value="Select" class="btn btn-large"><br>
+</form>
+	
+{% endblock %}

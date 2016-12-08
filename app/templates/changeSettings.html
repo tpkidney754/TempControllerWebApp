@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script src="/static/js/updating.js"></script>
+
+	<form action="" method="post" name="update">
+		{{ form.hidden_tag() }}
+		<table class="style1" align="center">
+			<tr><h1 align="center">Set Desired Temperature and Range</h1></tr>
+			<tr align="center">
+				<td><h1>Temp</h1></td>
+				<td>&nbsp</td>
+				<td><h1>Range</h1></td>
+			</tr>
+			<tr align="center">
+				<td><a type="button" class="btn btn-large" onclick="incTemp()"><i class="icon-chevron-up"></i></a></td>
+				<td>&nbsp</td>
+				<td><a type="button" class="btn btn-large" onclick="incRange()"><i class="icon-chevron-up"></i></a></td>
+			</tr>
+			<tr align="center">
+				<td>{{ form.desiredTemp(class_="Settings") }}<td>
+				
+				<td>{{ form.desiredRange(class_="Settings") }}</td>
+			</tr>
+			<tr align="center">
+				<td><a type="button" class="btn btn-large" onclick="decTemp()"><i class="icon-chevron-down"></i></a></td>
+				<td>&nbsp</td>
+				<td><a type="button" class="btn btn-large" onclick="decRange()"><i class="icon-chevron-down"></i></a></td>
+			</tr>
+			<tr align="center"><td colspan="3"><input type="submit" value="Update" class="btn btn-large"></td></tr>
+		</table>
+	</form>
+
+{% endblock %}

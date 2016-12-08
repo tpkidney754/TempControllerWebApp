@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta http-equiv="refresh" content="65" />
+    {% if title %}
+    <title>{{ title }}Temperature Controller</title>
+    {% else %}
+    <title>Temperature Controller</title>
+    {% endif %}
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/static/css/mystyle.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/moment.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <!--a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"-->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">Temperature Controller</a>
+            <ul class="nav">
+              <li><a href="{{ url_for('index') }}">Current Temperature</a></li>
+              <li><a href="{{ url_for('changeSettings') }}">Change Settings</a><li>
+              <li><a href="{{ url_for('brews') }}">Brews</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+        <hr>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }} </li>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>   
+  </body>
+</html>
