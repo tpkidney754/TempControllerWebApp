@@ -3,13 +3,13 @@ from app import app
 from .forms import ChangeSettingsForm, NewBrewForm, BrewHistoryForm
 from app import t, db, models
 from datetime import datetime
-#import readTemp
+import readTemp
 from createPlot import createPlot
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-	#readTemp.refreshTemp()
+	readTemp.readTemp()
 	return render_template('index.html',
 							currentTemp=t.currentTemp,
 							selectedTemp=t.selectedTemp,
@@ -20,8 +20,8 @@ def index():
 def changeSettings():
 	form = ChangeSettingsForm()
 	if form.validate_on_submit():
-		t.selectedTemp = int(form.desiredTemp.data)
-		t.tempRange = int(form.desiredRange.data)
+		readTemp.changeDesired( int(form.desiredTemp.data) )
+		readTemp.changeRange( int(form.desiredRange.data) )
 		return redirect('/index')
 	else:
 		print "Failed submit"

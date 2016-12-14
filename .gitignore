@@ -3,3 +3,5 @@ __pycache__
 app.db
 *.pyc
 ./app/static/img/Plots/*
+.DS_Store
+._.DS_Store

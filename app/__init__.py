@@ -1,5 +1,5 @@
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from Temp import Temp
 from config import basedir, ADMINS, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD
 
@@ -7,6 +7,7 @@ t = Temp()
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
+
 
 if not app.debug:
 	import logging
@@ -18,7 +19,7 @@ if not app.debug:
 	app.logger.setLevel(logging.INFO)
 	file_handler.setLevel(logging.INFO)
 	app.logger.addHandler(file_handler)
-	app.logger.info('Temp Controller startup')
+	#app.logger.info('Temp Controller startup')
 	credentials = None
 	if MAIL_USERNAME or MAIL_PASSWORD:
 		credentials = (MAIL_USERNAME, MAIL_PASSWORD)

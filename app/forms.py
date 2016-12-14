@@ -1,4 +1,4 @@
-from flask.ext.wtf import Form
+from flask_wtf import Form
 from wtforms import StringField, BooleanField, IntegerField, SelectField
 from wtforms.validators import DataRequired
 from app import t, db, models
@@ -11,7 +11,7 @@ class NewBrewForm(Form):
 	newBrew = StringField('newBrewName', validators=[DataRequired()])
 
 class BrewHistoryForm(Form):
-	brews = models.Brew.query.order_by('start_date desc').all()
+	brews = models.Brew.query.order_by('start_date').all()
 	#brews = models.Brew.query.all()
 	choices = []
 	for bb in brews:
