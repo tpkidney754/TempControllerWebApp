@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from numpy import *
 from app import db, models
@@ -19,15 +21,14 @@ def createPlot(brewIDnum):
 		dates.append(td.timestamp)
 		x.append(i)
 		i += 1
-	
+
 	plt.clf()
 	plt.plot(x,temps)
 	
-	'''
 	labels = []
 	for dt in dates:
 		labels.append(dt.isoformat())
-
+	'''
 	plt.xticks(x, labels, rotation='vertical')
 	plt.margins(0.2)
 	plt.subplots_adjust(bottom=0.25)
@@ -38,7 +39,7 @@ def createPlot(brewIDnum):
 	dir = os.path.dirname(os.path.realpath(__file__))
 	plotFileNameFull = dir + '/app/static/img/Plots/' + b.name + b.start_date.isoformat() + '/plot_' + d.isoformat() +'.png'
 	dir = os.path.dirname(plotFileNameFull)
-	print dir
+	print "\nDirectory: " + dir + "\n"
 	try:
 		os.stat(dir)
 	except:

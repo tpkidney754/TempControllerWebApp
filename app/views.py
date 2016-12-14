@@ -41,6 +41,7 @@ def brews():
 	global plotFileName
 	newBrewForm = NewBrewForm()
 	brewHistoryForm = BrewHistoryForm()
+	
 	if newBrewForm.validate_on_submit():
 		newBrew = models.Brew(name=newBrewForm.newBrew.data, start_date=datetime.utcnow())
 		db.session.add(newBrew)
